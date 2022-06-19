@@ -6,6 +6,8 @@ import GlobalStyles from './components/GlobalStyles';
 import { SnackbarProvider } from 'notistack';
 import { Provider } from 'react-redux';
 import store from './app/store';
+import { BrowserRouter as Router } from 'react-router-dom';
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,11 +15,13 @@ root.render(
   // </React.StrictMode>
 
   <Provider store={store}>
-    <SnackbarProvider anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
-      <GlobalStyles>
-        <App />
-      </GlobalStyles>{' '}
-    </SnackbarProvider>
+    <Router>
+      <SnackbarProvider anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+        <GlobalStyles>
+          <App />
+        </GlobalStyles>{' '}
+      </SnackbarProvider>
+    </Router>
   </Provider>
 );
 

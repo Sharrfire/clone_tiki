@@ -1,14 +1,10 @@
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Navigate, Routes, Route } from 'react-router-dom';
-
-// import { useEffect } from 'react';
-
-// import Heading from '~/components/Heading';
-import HomePage from './pages/Home';
+import Header from './components/Header';
 import ProductFeature from './features/Product';
 import ListPage from './features/Product/pages/ListPage';
+import HomePage from './pages/Home';
 import NotFound from './pages/NotFound';
-import Header from './components/Header';
 function App() {
   return (
     <div className='app'>

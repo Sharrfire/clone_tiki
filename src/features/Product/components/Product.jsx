@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Typography } from '@material-ui/core';
-import { Skeleton } from '@material-ui/lab';
 import { STATIC_HOST, THUMBNAIL_PLACEHOLDER } from '~/constants/index';
 Product.propTypes = {
   product: PropTypes.object,

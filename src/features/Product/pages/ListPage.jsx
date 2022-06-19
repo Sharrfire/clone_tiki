@@ -1,20 +1,31 @@
-import { Box, Container, Grid, makeStyles, Paper } from '@material-ui/core';
+import { Box, Container, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
+import { useState } from 'react';
 import { useEffect } from 'react';
 import productApi from '~/api/productApi';
+import ProductList from '../components/ProductList';
+import ProductSkeletonList from '../components/ProductSkeletonList';
 
-ProductListPage.propTypes = {};
 const useStyles = makeStyles((theme) => ({
   root: {},
   left: { width: '250px' },
-  right: { flex: '1 1 auto' },
+  right: { flex: '1 1 0' },
 }));
-function ProductListPage(props) {
+function ListPage(props) {
   const classes = useStyles();
+  const [productlist, setProductlist] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     (async () => {
-      const response = await productApi.getAll({ _page: 1, _limit: 10 });
-      console.log({ response });
+      try {
+        const { data } = await productApi.getAll({ _page: 1, _limit: 10 });
+        console.log({ data });
+        setProductlist(data);
+      } catch (error) {
+        console.log('Failed to get all products', error);
+      }
+      setLoading(false);
     })();
   }, []);
   return (
@@ -25,12 +36,13 @@ function ProductListPage(props) {
             <Paper elevation={0}>Left collum</Paper>
           </Grid>
           <Grid item className={classes.right}>
-            <Paper elevation={0}>Right collum</Paper>
+            <Paper elevation={0}>{loading ? <ProductSkeletonList /> : <ProductList data={productlist} />}</Paper>
           </Grid>
         </Grid>
       </Container>
     </Box>
   );
 }
+ListPage.propTypes = {};
 
-export default ProductListPage;
+export default ListPage;

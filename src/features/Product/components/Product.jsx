@@ -12,7 +12,7 @@ function Product({ product }) {
     <Box padding={1}>
       <Box>
         {/* <img src={`https://api.ezfrontend.com${product.thumbnail?.url}`} alt={product.name} width='100%' /> */}
-        <img src={thumbnailUrl} alt={product.name} width='100%' minHeight='200px' />
+        <img src={thumbnailUrl} alt={product.name} width='100%' minheight='200px' />
       </Box>
       <Typography variant='body2'>{product.name}</Typography>
       <Typography variant='body2'>

@@ -6,7 +6,7 @@ function FilterSkeletonList({ length }) {
   return (
     <Box>
       {Array.from(new Array(length)).map((x, index) => (
-        <Skeleton width='100%' />
+        <Skeleton key={index} width='100%' />
       ))}
     </Box>
   );

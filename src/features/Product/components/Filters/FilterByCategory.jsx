@@ -41,7 +41,7 @@ function FilterByCategory({ onChange }) {
           }))
         );
 
-        console.log(list);
+        // console.log(list);
       } catch (error) {
         console.log('Failed to fetch category list', error);
       }

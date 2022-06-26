@@ -2,7 +2,6 @@ import { Box, Container, Grid, makeStyles, Paper } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab';
 import { useEffect, useState } from 'react';
 import productApi from '~/api/productApi';
-import FilterSkeletonList from '../components/Filters/FilterSkeletonList';
 import ProductFilters from '../components/ProductFilters';
 import ProductList from '../components/ProductList';
 import ProductSkeletonList from '../components/ProductSkeletonList';
@@ -22,13 +21,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 function ListPage(props) {
   const classes = useStyles();
+  const [loading, setLoading] = useState(true);
   const [productlist, setProductlist] = useState([]);
   const [pagination, setPagination] = useState({
     limit: 12,
     total: 15,
     page: 1,
   });
-  const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
     _page: 1,
     _limit: 12,

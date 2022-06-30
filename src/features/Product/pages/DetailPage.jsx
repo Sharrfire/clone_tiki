@@ -1,6 +1,9 @@
 import { Box, Container, Grid, makeStyles, Paper } from '@material-ui/core';
-import { useParams } from 'react-router-dom';
+import { Outlet, Route, Routes, useParams } from 'react-router-dom';
 import AddToCartForm from '../components/AddToCartForm';
+import ProductDescription from '../components/ProductDescription';
+import ProductAdditional from '../components/ProductAdditional';
+import ProductReview from '../components/ProductReview';
 import ProductInfo from '../components/ProductInfo';
 import ProductMenu from '../components/ProductMenu';
 import ProductThumbnail from '../components/ProductThumbnail';
@@ -44,6 +47,11 @@ function DetailPage() {
           </Grid>
         </Paper>
         <ProductMenu />
+        <Routes>
+          <Route path='description' element={<ProductDescription product={product} />} />
+          <Route path='additional' element={<ProductAdditional product={product} />} />
+          <Route path='review' element={<ProductReview product={product} />} />
+        </Routes>
       </Container>
     </Box>
   );

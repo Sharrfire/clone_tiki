@@ -2,6 +2,7 @@ import { Box, Container, Grid, makeStyles, Paper } from '@material-ui/core';
 import { useParams } from 'react-router-dom';
 import AddToCartForm from '../components/AddToCartForm';
 import ProductInfo from '../components/ProductInfo';
+import ProductMenu from '../components/ProductMenu';
 import ProductThumbnail from '../components/ProductThumbnail';
 import useProductDetail from '../hooks/useProductDetail';
 const useStyles = makeStyles((theme) => ({
@@ -42,6 +43,7 @@ function DetailPage() {
             </Grid>
           </Grid>
         </Paper>
+        <ProductMenu />
       </Container>
     </Box>
   );

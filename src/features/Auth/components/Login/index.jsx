@@ -1,10 +1,9 @@
 import { unwrapResult } from '@reduxjs/toolkit';
 import { useSnackbar } from 'notistack';
-import React from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import LoginForm from '~/features/Auth/components/LoginForm';
 import { login } from '~/features/Auth/components/userSlice';
-import PropTypes from 'prop-types';
 Login.propTypes = {
   closeDialog: PropTypes.func,
 };
@@ -19,6 +18,7 @@ function Login(props) {
       const resultAction = await dispatch(action);
       //==  const resultAction = await dispatch(Login(values));
       const user = unwrapResult(resultAction);
+      console.log(user);
       //close dialog
       const { closeDialog } = props;
       if (closeDialog) {

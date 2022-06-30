@@ -14,7 +14,7 @@ function App() {
         <Route path='/' element={<Navigate replace to='/products' />} />
         <Route path='products/*' element={<ProductFeature />}>
           <Route path='' element={<ListPage />} />
-          <Route path=':productId' element={<DetailPage />} />
+          <Route path=':productId/*' element={<DetailPage />}></Route>
         </Route>
 
         <Route path='*' element={<NotFound />} />

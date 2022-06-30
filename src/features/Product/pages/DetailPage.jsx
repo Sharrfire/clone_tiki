@@ -1,5 +1,6 @@
 import { Box, Container, Grid, makeStyles, Paper } from '@material-ui/core';
 import { useParams } from 'react-router-dom';
+import AddToCartForm from '../components/AddToCartForm';
 import ProductInfo from '../components/ProductInfo';
 import ProductThumbnail from '../components/ProductThumbnail';
 import useProductDetail from '../hooks/useProductDetail';
@@ -23,6 +24,10 @@ function DetailPage() {
   if (loading) {
     return <Box>Loading</Box>;
   }
+  const handleAddToCartSubmit = (formValue) => {
+    console.log('Form submit', formValue);
+  };
+
   return (
     <Box>
       <Container>
@@ -33,6 +38,7 @@ function DetailPage() {
             </Grid>
             <Grid item className={classes.right}>
               <ProductInfo product={product} />
+              <AddToCartForm onSubmit={handleAddToCartSubmit} />
             </Grid>
           </Grid>
         </Paper>

@@ -4,15 +4,14 @@ import Header from './components/Header';
 import ProductFeature from './features/Product';
 import DetailPage from './features/Product/pages/DetailPage';
 import ListPage from './features/Product/pages/ListPage';
-import HomePage from './pages/Home';
 import NotFound from './pages/NotFound';
 function App() {
   return (
     <div className='app'>
       <Header />
       <Routes>
-        <Route path='/home' element={<HomePage />} />
-        <Route path='/' element={<Navigate replace to='/home' />} />
+        <Route path='/home' element={<Navigate replace to='/products' />} />
+        <Route path='/' element={<Navigate replace to='/products' />} />
         <Route path='products/*' element={<ProductFeature />}>
           <Route path='' element={<ListPage />} />
           <Route path=':productId' element={<DetailPage />} />

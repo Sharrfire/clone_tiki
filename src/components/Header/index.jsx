@@ -74,23 +74,8 @@ export default function Header() {
               GAMING SHOP
             </Link>
           </Typography>
-          <NavLink to='/news' className={classes.link}>
-            <Button color='inherit'>News</Button>
-          </NavLink>{' '}
           <NavLink to='/products' className={classes.link}>
             <Button color='inherit'>Products</Button>
-          </NavLink>{' '}
-          <NavLink to='/Contact' className={classes.link}>
-            <Button color='inherit'>Contact</Button>
-          </NavLink>{' '}
-          <NavLink to='/Text' className={classes.link}>
-            <Button color='inherit'>Text</Button>
-          </NavLink>{' '}
-          <NavLink to='/Todo' className={classes.link}>
-            <Button color='inherit'>Todo</Button>
-          </NavLink>{' '}
-          <NavLink to='/album' className={classes.link}>
-            <Button color='inherit'>Album</Button>
           </NavLink>{' '}
           {!isLoggedIn && (
             <Button color='inherit' onClick={handleClickOpen}>

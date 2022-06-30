@@ -3,33 +3,18 @@ import { Button, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import InputField from '~/components/forms-control/InputField';
+import QuantityField from '~/components/forms-control/QuantityField';
 
-const useStyles = makeStyles((theme) => ({
-  root: { paddingTop: theme.spacing(4), position: 'relative' },
-  avatar: {
-    margin: '0 auto',
-    backgroundColor: theme.palette.secondary.main,
-  },
-  title: {
-    margin: theme.spacing(2, 0, 3, 0),
-    textAlign: 'center',
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-  progress: {
-    position: 'absolute',
-    top: theme.spacing(1),
-    left: 0,
-    right: 0,
-  },
-}));
+const useStyles = makeStyles((theme) => ({}));
 
 function AddToCartForm({ onSubmit = null }) {
   const classes = useStyles();
   const schema = yup.object().shape({
-    quantity: yup.number().required('Please enter quantity').min(1, 'Please enter at least 1'),
+    quantity: yup
+      .number()
+      .required('Please enter quantity')
+      .min(1, 'Please enter at least 1')
+      .typeError('Please enter number'),
   });
   const form = useForm({
     defaultValues: {
@@ -47,9 +32,9 @@ function AddToCartForm({ onSubmit = null }) {
   return (
     <div className={classes.root}>
       <form onSubmit={form.handleSubmit(handleSubmit)}>
-        <InputField name='quantity' label='Quantity' form={form} className={classes.root} />
-        <Button type='submit' variant='contained' color='primary' fullWidth size='large'>
-          Mua
+        <QuantityField name='quantity' label='Quantity' form={form} className={classes.root} />
+        <Button type='submit' variant='contained' color='primary' style={{ width: '250px' }} fullWidth size='large'>
+          Add to cart{' '}
         </Button>
       </form>
     </div>

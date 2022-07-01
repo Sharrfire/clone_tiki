@@ -17,10 +17,15 @@ const useStyles = makeStyles((theme) => ({
     },
     '& > li > a': {
       color: theme.palette.grey[700],
+      ' &:hover': {
+        color: '#ce0c1b',
+
+        textDecoration: 'none',
+      },
     },
     '& > li > a.active': {
       color: '#ce0c1b',
-      textDecoration: 'underline',
+      // textDecoration: 'underline',
     },
   },
 }));

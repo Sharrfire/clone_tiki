@@ -1,11 +1,11 @@
 import { Box, Container, Grid, LinearProgress, makeStyles, Paper } from '@material-ui/core';
-import { Outlet, Route, Routes, useParams } from 'react-router-dom';
+import { Route, Routes, useParams } from 'react-router-dom';
 import AddToCartForm from '../components/AddToCartForm';
-import ProductDescription from '../components/ProductDescription';
 import ProductAdditional from '../components/ProductAdditional';
-import ProductReview from '../components/ProductReview';
+import ProductDescription from '../components/ProductDescription';
 import ProductInfo from '../components/ProductInfo';
 import ProductMenu from '../components/ProductMenu';
+import ProductReview from '../components/ProductReview';
 import ProductThumbnail from '../components/ProductThumbnail';
 import useProductDetail from '../hooks/useProductDetail';
 const useStyles = makeStyles((theme) => ({
